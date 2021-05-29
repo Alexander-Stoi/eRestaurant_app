@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "a773eaca-def6-468e-810c-a78b83b2400f",
+      "username": "alek",
+      "password": "alek",
+      "type": "admin"
+    },
+    {
+      "id": "ac3f4d00-cb55-4e7e-93d9-3e18ded99aa1",
+      "username": "stojanov",
+      "password": "$2b$10$hRlL6A6bdQ1RyavjCXfFHeWoviQ6gg32SKOCfeIvOJgPq5DL93.0a",
+      "type": "user"
+    }
+  ]
+}

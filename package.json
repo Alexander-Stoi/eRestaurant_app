@@ -1,0 +1,31 @@
+{
+  "name": "eRestaurant_app",
+  "version": "1.0.0",
+  "description": "1. Create an authorization/authentication feature\r     - Create a LOGIN route\r     - Create a REGISTER route",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexander-Stoi/eRestaurant_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexander-Stoi/eRestaurant_app/issues"
+  },
+  "homepage": "https://github.com/Alexander-Stoi/eRestaurant_app#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
