@@ -3,7 +3,7 @@
     {
       "id": "a773eaca-def6-468e-810c-a78b83b2400f",
       "username": "alek",
-      "password": "alek",
+      "password": "$2b$10$hRlL6A6bdQ1RyavjCXfFHeWoviQ6gg32SKOCfeIvOJgPq5DL93.0a",
       "type": "admin"
     },
     {
@@ -11,6 +11,12 @@
       "username": "stojanov",
       "password": "$2b$10$hRlL6A6bdQ1RyavjCXfFHeWoviQ6gg32SKOCfeIvOJgPq5DL93.0a",
       "type": "user"
+    },
+    {
+      "id": "36d2d84c-266a-48b3-9bb6-ec4aed51f9db",
+      "username": "aleks",
+      "password": "$2b$10$qf5aTFmeLUkTIKeR3FnqPecOdx95cPbnVdRhjp4eerIcbGs0XXMnG",
+      "type": "admin"
     }
   ]
 }

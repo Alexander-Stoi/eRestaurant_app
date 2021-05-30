@@ -3,9 +3,10 @@ const OrdersController = require('../controller/orders.controller');
 const ordersController = new OrdersController();
 const joi = require('joi');
 const { response } = require('express');
+const validateSession = require('../sessionValidator.const');
 
 // POST /orders creates a new order
-router.post('/', (req, res) => {
+router.post('/', validateSession.validateUser, (req, res) => {
     const body = req.body;
 
     const schema = joi.object({
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
 })
 
 // PUT /orders/{id} updates order by specific id
-router.put('/:id?', (req, res) => {
+router.put('/:id?', validateSession.validateAdmin, (req, res) => {
     const id = req.params.id;
     const body = req.body;
 
@@ -52,6 +53,5 @@ router.put('/:id?', (req, res) => {
 
 
 })
-
 
 module.exports = router;

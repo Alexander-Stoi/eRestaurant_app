@@ -7,8 +7,8 @@
     },
     {
       "id": "b3f4ed5c-92dc-449f-b425-687dcca31fb7",
-      "name": "graF",
-      "price": 20.5
+      "name": "lazanja",
+      "price": "20"
     },
     {
       "id": "bd4117ee-df66-4b43-8974-d26454131a72",
@@ -22,12 +22,12 @@
     },
     {
       "id": "e9dfc8b0-44bf-411b-a96d-0dfb5519a664",
-      "name": "gravddd",
+      "name": "kompir",
       "price": 20.5
     },
     {
       "id": "0ee3db25-f121-40d6-a8b2-eb654690f7c7",
-      "name": "gravddddsad",
+      "name": "pilekjo",
       "price": 20.5
     }
   ]

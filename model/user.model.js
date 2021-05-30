@@ -13,8 +13,10 @@ class User {
     }
 }
 
+// UserModel implements methods for register and login
 class UserModel {
 
+    // registerUser creates new user
     registerUser(body) {
         return new Promise((resolve, rejects) => {
 
@@ -25,6 +27,7 @@ class UserModel {
             if (exists) {
                 return resolve({ message: 'User already exists in db!' })
             }
+
             const newUser = new User(
                 uuidv4(),
                 body.username,
@@ -42,31 +45,27 @@ class UserModel {
         })
     }
 
+    // loginUser login specific user by username and password
     loginUser(body) {
         return new Promise(async (resolve, reject) => {
             const dbData = textService.readDataFromDb('db/users.json');
             const parsedData = JSON.parse(dbData);
             const user = parsedData.users.find(u => u.username === body.username);
 
-
             if (!user) {
                 return resolve({ message: `User doesn't exist in db!` })
             }
 
-            if (user) {
+            const validatePassword = await bcrypt.compare(body.password, user.password);
 
-                const validatePassword = await bcrypt.compare(body.password, user.password);
-                if (!validatePassword) {
-                    return resolve({ message: 'Wrong password' });
-                }
-                const { password, ...cleanUser } = user
-                resolve(cleanUser);
+            if (!validatePassword) {
+                return resolve({ message: 'Wrong password' });
             }
+            const { password, ...cleanUser } = user
+            resolve(cleanUser);
 
         })
     }
-
-
 }
 
 

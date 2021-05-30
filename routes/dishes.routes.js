@@ -3,16 +3,17 @@ const DishesController = require('../controller/dishes.controller');
 const dishesController = new DishesController();
 const joi = require('joi');
 const { response } = require('express');
+const sessionValidator = require('../sessionValidator.const');
 
 // GET /dishes returns all the dishes from db
-router.get('/', (req, res) => {
+router.get('/', sessionValidator.validate, (req, res) => {
     dishesController.getDishes().then((response) => {
         res.status(200).json(response);
     })
 })
 
 // GET /dishes/{id} returns single dish for specific dish_id from db
-router.get('/:id?', (req, res) => {
+router.get('/:id?', sessionValidator.validate, (req, res) => {
     const id = req.params.id;
 
     // validate input params
@@ -30,7 +31,7 @@ router.get('/:id?', (req, res) => {
 })
 
 // POST /dishes creates a new dish
-router.post('/', (req, res) => {
+router.post('/', sessionValidator.validateAdmin, (req, res) => {
     const body = req.body;
 
     const schema = joi.object({
@@ -49,13 +50,13 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/:id?', (req, res) => {
+router.put('/:id?', sessionValidator.validateAdmin, (req, res) => {
     const body = req.body;
     const id = req.params.id;
 
     // validate param
     const schemaParam = joi.string().required();
-    console.log("sadasdadasd", id);
+    
     const validationParam = schemaParam.validate(id);
     if (validationParam?.error) {
         return res.status(400).send({ message: validationParam.error.details[0].message })
@@ -77,7 +78,5 @@ router.put('/:id?', (req, res) => {
 
 
 })
-
-
 
 module.exports = router;

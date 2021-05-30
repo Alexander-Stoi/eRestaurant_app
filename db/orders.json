@@ -2,8 +2,18 @@
   "orders": [
     {
       "id": "31590f6b-f869-4722-9408-d47564cf62a9",
-      "dishName": "zelencuk",
+      "dishName": "rizoto",
+      "status": "Done"
+    },
+    {
+      "id": "6cd1b296-08df-4d17-a903-81046f3f6011",
+      "dishName": "pasta",
       "status": "New"
+    },
+    {
+      "id": "86597972-55da-4ab7-830d-4ba601008c54",
+      "dishName": "pasta",
+      "status": "Cancelled"
     }
   ]
 }

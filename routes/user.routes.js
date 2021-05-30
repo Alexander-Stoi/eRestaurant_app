@@ -4,9 +4,8 @@ const UserController = require('../controller/user.controller');
 const userController = new UserController();
 const joi = require('joi');
 const bcrypt = require('bcrypt');
-// const jwt = require(`jsonwebtoken`);
 
-
+// POST /register creates new user
 router.post('/register', async (req, res) => {
     const body = req.body;
     const schema = joi.object(
@@ -35,10 +34,7 @@ router.post('/register', async (req, res) => {
     })
 })
 
-
-
-
-
+// POST /login logins the user
 router.post('/login', async (req, res) => {
     const body = req.body;
     const schema = joi.object(
@@ -54,12 +50,21 @@ router.post('/login', async (req, res) => {
     }
 
     userController.loginUser(body).then((response) => {
-
-
+        // Successful login
+        req.session.authenticated = true;
+        req.session.user = response.type;
         res.status(200).json(response);
     })
+        .catch((error) => {
+            res.status(401).json(error)
+        })
 })
 
+// POST /logout logouts the user, clears the session
+router.post('/logout', (req, res) => {
+    req.session.user = undefined;
+    res.status(200).send({ message: "Successfully logged out" });
+})
 
 module.exports = router;
 
