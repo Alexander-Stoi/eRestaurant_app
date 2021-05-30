@@ -1,3 +1,9 @@
 {
-  "orders": []
+  "orders": [
+    {
+      "id": "31590f6b-f869-4722-9408-d47564cf62a9",
+      "dishName": "zelencuk",
+      "status": "New"
+    }
+  ]
 }
